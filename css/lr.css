@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eaf6fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url("images/mm.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2
+{
+    color:#43bccb;
+}
+
+
+
+
+.form-container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    display: block;
+    width: 107%;
+    padding: 10px;
+    background-color: #62C4D6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #0A4160;
+}
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+	color: red;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS général pour l'arrière-plan */
+
+
+.main-container {
+    text-align: center;
+    position: relative;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.site-name {
+    color: #62C4D6;
+    font-size: 24px;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

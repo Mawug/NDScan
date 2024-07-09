@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NDScan</title>
+    <link rel="stylesheet" href="css/bord.css">
+    <link rel="shortcut icon" href="images/online-security.png" type="image/x-icon">
+<link rel="icon" href="images/online-security.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="images/online-security.png" alt="Logo NDScan">
+                <span>NDScan</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" id="logout">Déconnexion</a></li>
+                </ul>
+            </nav>
+        </header>
+        <aside>
+            <div class="profile-section">
+                <img src="images/utilisateur.png" alt="User Icon">
+                <p>yantekouanelly@gmail.com</p>
+            </div>
+            <ul class="menu">
+                <li data-section="profile">Profil</li>
+                <li data-section="scheduled-events">Événements programmés</li>
+                <li data-section="recent-analyses">Analyses récentes</li>
+            </ul>
+        </aside>
+        <main>
+            <div id="profile" class="content-section">
+                <h2>Vos informations personnelles</h2>
+                <form>
+                    <label for="name">Nom et Prénoms :</label>
+                    <input type="text" id="name" placeholder="Votre nom complet">
+                    <label for="email">Mail :</label>
+                    <input type="email" id="email" placeholder="Votre email">
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" id="password" placeholder="********">
+                    <button type="submit">Modifier</button>
+                </form>
+            </div>
+            <div id="scheduled-events" class="content-section hidden">
+                <h2>Scans programmés</h2>
+                <p>Liste des Scans...</p>
+            </div>
+            <div id="recent-analyses" class="content-section hidden">
+                <h2>Analyses récentes</h2>
+                <div class="analysis">
+                    <p>Nom du site : example.com</p>
+                    <p>Date d'analyse : 01/07/2024</p>
+                </div>
+                <div class="analysis">
+                    <p>Nom du site : another-example.com</p>
+                    <p>Date d'analyse : 02/07/2024</p>
+                </div>
+                <button id="download-report">Télécharger le rapport</button>
+            </div>
+        </main>
+    </div>
+    <script src="js/bord.js"></script>
+</body>
+</html>
