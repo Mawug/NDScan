@@ -4,15 +4,15 @@ from zapv2 import ZAPv2
 
 # Configuration de la base de données
 db_config = {
-    'user': 'root',  # Le nom d'utilisateur par défaut est 'root'
-    'password': '',  # Par défaut, il n'y a pas de mot de passe pour l'utilisateur 'root'
+    'user': 'root',
+    'password': '',
     'host': '127.0.0.1',
     'database': 'vulnerability_analysis'
 }
 
 # Configuration de ZAP
-zap = ZAPv2(apikey='rlminssppe06h577ks4m2c460k')  # Remplacez 'changeme' par votre clé API ZAP si nécessaire
-target = 'https://juice-shop.herokuapp.com/#/'
+ZAP_API_KEY = 'rlminssppe06h577ks4m2c460k'  # Assurez-vous que la clé API est correcte
+zap = ZAPv2(apikey=ZAP_API_KEY)
 
 def run_zap_scan(url):
     zap.urlopen(url)
@@ -29,17 +29,19 @@ def run_zap_scan(url):
     report = zap.core.htmlreport()
     return report
 
-def save_report(url, report):
+def save_zap_result(url, report):
     try:
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO analyses (url, report) VALUES (%s, %s)", (url, report))
+        cursor.execute("INSERT INTO owasp_results (url, result) VALUES (%s, %s)", (url, report))
         conn.commit()
         cursor.close()
         conn.close()
-        print(f"Rapport pour {url} enregistré avec succès.")
+        print(f"Rapport pour {url} enregistré avec succès dans la table 'owasp_results'.")
     except mysql.connector.Error as err:
-        print(f"Erreur : {err}")
+        print(f"Erreur MySQL : {err}")
+    except Exception as ex:
+        print(f"Erreur inattendue : {ex}")
 
 if __name__ == '__main__':
     import sys
@@ -49,5 +51,5 @@ if __name__ == '__main__':
     
     url = sys.argv[1]
     report = run_zap_scan(url)
-    save_report(url, report)
-    print(f"Rapport pour {url} : \n{report}")
+    save_zap_result(url, report)
+    print(f"Rapport pour {url} avec OWASP ZAP : \n{report}")
